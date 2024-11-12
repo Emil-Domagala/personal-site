@@ -22,6 +22,7 @@ export default {
         getCursor(e) {
             this.posX = e.clientX;
             this.posY = e.clientY;
+            
         }
     }
 
