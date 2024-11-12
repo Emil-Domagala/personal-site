@@ -25,5 +25,6 @@ section{
     height: 100vh;
     background-color: var(--main);
     z-index: 5;
+    
 }
 </style>
