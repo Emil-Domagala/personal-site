@@ -1,0 +1,10 @@
+:root {
+  --main: rgba(15 23 42);
+  --main-hover:rgba(30, 41, 59, .5);
+  --pointer: rgba(29, 78, 216, 0.15);
+  --primary: rgb(148 163 184);
+  --primary-light: rgb(226 232 240);
+  --secondary-light: rgba(94 234 212);
+  --secondary-light-2: rgb(153, 234, 221);
+  --secondary-transparent:rgba(45, 212, 191, .1)
+}
