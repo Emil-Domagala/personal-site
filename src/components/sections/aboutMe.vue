@@ -4,6 +4,7 @@
             <Card>
                 <div class="main-text">
                     Hi, I'm Emil, a front-end developer based in Poznań.
+                    <span>Hi my name is Emil</span>
                 </div>
             </Card>
         </div>
@@ -25,6 +26,9 @@ section{
     height: 100vh;
     background-color: var(--main);
     z-index: 5;
-    background-color: #fff;
+    // background-color: #fff;
+    span{
+        color: var(--primary-light);
+    }
 }
 </style>

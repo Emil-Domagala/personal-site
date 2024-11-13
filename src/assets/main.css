@@ -10,7 +10,6 @@
   padding: 0;
 }
 
-
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -18,7 +17,6 @@ html {
 
 body {
   background-color: var(--main);
-  /* color: var(--white-brand); */
   color: var(--primary);
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,7 +24,6 @@ body {
   font-size: 1.8rem;
   line-height: 1.5;
 }
-
 
 img,
 picture,
@@ -67,48 +64,64 @@ h6 {
   z-index: 0;
 }
 
-h1,h2,h3{
-  font-family: "Roboto Condensed", sans-serif;
+h1,
+h2,
+h3 {
+  font-family: 'Roboto Condensed', sans-serif;
   color: var(--primary-light);
-
 }
 
- h1{
-    font-size: 4.5rem;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-  }
+h1 {
+  font-size: 11cqw;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 800;
+}
 
 .container {
   width: 100%;
-  padding: 0px 20px;
+  padding: 0px 4vw;
+  margin: 0 auto;
+}
+
+@media (min-width: 450px) {
+  h1 {
+    /* font-size: 5.3rem; */
+  }
 }
 
 @media (min-width: 576px) {
- 
   .container {
-    width: 540px;
-    padding: 0;
-    margin: 0 auto;
+    padding: 0 2.5vw;
+  }
+  h1 {
+    font-size: 11.5cqw;
+    letter-spacing: -2px;
   }
 }
 @media (min-width: 768px) {
-  .container {
-    width: 720px;
+  h1 {
+    /* font-size: 7.5rem; */
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 960px;
+    padding: 0 2vw;
+  }
+  h1 {
+    /* font-size: 9rem; */
   }
 }
 @media (min-width: 1200px) {
-  .container {
-    width: 1140px;
+  h1 {
+    /* font-size: 10.5rem; */
   }
 }
 @media (min-width: 1400px) {
   .container {
-    width: 1320px;
+    max-width: 1400px;
+  }
+  h1 {
+    /* font-size: 12rem; */
   }
 }
