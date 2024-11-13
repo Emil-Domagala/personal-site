@@ -25,6 +25,10 @@ body {
   line-height: 1.5;
 }
 
+section{
+  background-color: var(--main);
+}
+
 img,
 picture,
 video,
@@ -78,6 +82,10 @@ h1 {
   font-weight: 800;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 .container {
   width: 100%;
   padding: 0px 4vw;
@@ -85,9 +93,6 @@ h1 {
 }
 
 @media (min-width: 450px) {
-  h1 {
-    /* font-size: 5.3rem; */
-  }
 }
 
 @media (min-width: 576px) {
@@ -100,28 +105,16 @@ h1 {
   }
 }
 @media (min-width: 768px) {
-  h1 {
-    /* font-size: 7.5rem; */
-  }
 }
 @media (min-width: 992px) {
   .container {
     padding: 0 2vw;
   }
-  h1 {
-    /* font-size: 9rem; */
-  }
 }
 @media (min-width: 1200px) {
-  h1 {
-    /* font-size: 10.5rem; */
-  }
 }
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
-  }
-  h1 {
-    /* font-size: 12rem; */
   }
 }

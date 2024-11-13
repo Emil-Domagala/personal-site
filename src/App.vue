@@ -2,15 +2,17 @@
   <Pointer v-if='pageWidth > 768' />
   <Hero :scrollPercentage='scrollPercentage' />
   <AboutMe />
+  <IWriteIn />
 </template>
 
 <script>
 import Pointer from './components/pointer.vue';
 import Hero from './components/sections/hero.vue';
 import AboutMe from './components/sections/aboutMe.vue';
+import IWriteIn from './components/sections/iWriteIn.vue';
 
 export default {
-  components: { Pointer, Hero,AboutMe },
+  components: { Pointer, Hero, AboutMe, IWriteIn },
   data() {
     return {
       pageWidth: 0,

@@ -1,5 +1,5 @@
 <template>
-    <section class='hero'>
+    <section id='hero'>
         <div class="container">
             <div class="top">
                 <div class="top-background" :style='`transform: translateY(-${scrollPercentage / 3}vw);`'></div>
@@ -24,24 +24,18 @@
 <script>
 // import MouseAnimationSVG from '../../../assets/svg/mouseAnimationSVG.svg';
 export default {
-
     props: {
         scrollPercentage: {
             type: Number,
             requied: true
         }
     },
-    watch: {
-        scrollPercentage() {
-            console.log(this.scrollPercentage);
-        }
-    }
 }
 
 </script>
 
 <style lang='scss' scoped>
-.hero {
+#hero {
     position: fixed;
     top: 0;
     width: 100%;
@@ -82,8 +76,8 @@ export default {
 
     &-name {
         position: absolute;
-        bottom: auto;
-        margin-top: 200px;
+        bottom: -5.8cqw;
+        // margin-top: 200px;
         text-align: center;
         width: 100%;
         line-height: 1;
@@ -94,7 +88,7 @@ export default {
         position: absolute;
         font-size: 20px;
         color: #94a3b8;
-        bottom: -10vw;
+        bottom: -13vw;
     }
 }
 
@@ -167,12 +161,9 @@ export default {
             height: 220px;
         }
 
-        &-name {
-            margin-top: 220px;
-        }
-
         .profesion {
             font-size: 22px;
+            bottom: -12.5vw;
         }
 
     }
@@ -192,11 +183,13 @@ export default {
         }
 
         &-name {
-            margin-top: 240px;
+            bottom: -6.1cqw;
+
         }
 
         .profesion {
             font-size: 24px;
+            bottom: -10vw;
         }
 
     }
@@ -212,10 +205,6 @@ export default {
 
         &-background {
             height: 260px;
-        }
-
-        &-name {
-            margin-top: 270px;
         }
 
         .profesion {
@@ -238,10 +227,6 @@ export default {
             height: 280px;
         }
 
-        &-name {
-            margin-top: 290px;
-        }
-
         .profesion {
             font-size: 28px;
             bottom: -9vw;
@@ -260,10 +245,6 @@ export default {
 
         &-background {
             height: 300px;
-        }
-
-        &-name {
-            margin-top: 310px;
         }
 
         .profesion {
@@ -285,12 +266,6 @@ export default {
         &-background {
             height: 320px;
         }
-
-        &-name {
-            margin-top: 330px;
-            bottom: -8vw;
-        }
-
 
     }
 }
