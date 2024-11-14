@@ -1,18 +1,17 @@
 <template>
-    <section id='hero'>
+    <section id='hero' :style='`opacity:${1 - scrollPercentage / 80}`'>
         <div class="container">
             <div class="top">
                 <div class="top-background" :style='`transform: translateY(-${scrollPercentage / 3}vw);`'></div>
                 <img src="../../assets/img/myPhoto.png" alt="my photo" class='top-image'>
                 <h1 class='top-name'>Emil Domagała</h1>
-                <p class='profesion'>Front-end Developer</p>
+                <p class='top-profesion'>Front-end Developer</p>
             </div>
 
 
         </div>
         <div class="top-color-h1" :style='`transform: translateY(-${scrollPercentage / 10}vw);`'></div>
         <div class="mouse">
-            <!-- <MouseAnimationSVG /> -->
             <div class="mouse-body">
                 <div class="mouse-dot"></div>
             </div>
@@ -22,7 +21,6 @@
 </template>
 
 <script>
-// import MouseAnimationSVG from '../../../assets/svg/mouseAnimationSVG.svg';
 export default {
     props: {
         scrollPercentage: {
@@ -83,7 +81,7 @@ export default {
         line-height: 1;
     }
 
-    .profesion {
+    &-profesion {
         display: block;
         position: absolute;
         font-size: 20px;
@@ -161,7 +159,7 @@ export default {
             height: 220px;
         }
 
-        .profesion {
+        &-profesion {
             font-size: 22px;
             bottom: -12.5vw;
         }
@@ -187,7 +185,7 @@ export default {
 
         }
 
-        .profesion {
+        &-profesion {
             font-size: 24px;
             bottom: -10vw;
         }
@@ -207,7 +205,7 @@ export default {
             height: 260px;
         }
 
-        .profesion {
+        &-profesion {
             font-size: 26px;
             bottom: -9.5vw;
         }
@@ -227,7 +225,7 @@ export default {
             height: 280px;
         }
 
-        .profesion {
+        &-profesion {
             font-size: 28px;
             bottom: -9vw;
         }
@@ -247,7 +245,7 @@ export default {
             height: 300px;
         }
 
-        .profesion {
+        &-profesion {
             font-size: 30px;
             bottom: -8.5vw;
         }

@@ -1,9 +1,26 @@
 <template>
-    <section id='iWriteIn'>
+    <section id='i-write-in'>
         <div class="container">
             <Card>
                 <div class="wrapper">
                     <h2>I write in:</h2>
+                    <div class="languages">
+                        <Language langName='Vue.js'>
+                            <!-- <VueSVG /> -->
+                        </Language>
+                        <Language langName='React.js'>
+                            <!-- <ReactSVG /> -->
+                        </Language>
+                        <Language langName='JavaScript'>
+                            <!-- <JavaScriptSVG /> -->
+                        </Language>
+                        <Language langName='TypeScript'>
+                            <!-- <TypeScriptSVG /> -->
+                        </Language>
+                        <Language langName='PHP'>
+                            <!-- <PhpSVG /> -->
+                        </Language>
+                    </div>
                 </div>
             </Card>
         </div>
@@ -11,83 +28,105 @@
 </template>
 <script>
 import Card from '../UI/Card.vue';
+import Language from '../UI/language.vue'
+import VueSVG from '../../assets/svg/VueSVG.svg';
+import ReactSVG from '../../assets/svg/ReactSVG.svg';
+import JavaScriptSVG from '../../assets/svg/javaScriptSVG.svg';
+import TypeScriptSVG from '../../assets/svg/TypeScriptSVG.svg';
+import PhpSVG from '../../assets/svg/PhpSVG.svg';
+
 export default {
-    components: { Card }
+    components: { Card, VueSVG, ReactSVG, JavaScriptSVG, TypeScriptSVG, PhpSVG, Language }
 }
 </script>
 
 <style scoped lang='scss'>
-#iWriteIn {
+#i-write-in {
     position: relative;
     z-index: 5;
     padding: 5vh 0;
 
     .wrapper {
+
         h2 {
             font-size: 5rem;
+            margin-bottom: 3rem;
+        }
+
+        .languages {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
     }
 }
 
 @media (min-width: 450px) {
-    #iWriteIn {
-            .wrapper {
-                h2 {
-                    font-size: 6rem;
-                }
+    #i-write-in {
+        .wrapper {
+            h2 {
+                font-size: 6rem;
             }
         }
+    }
 }
 
-@media (min-width: 576px) {
-     #iWriteIn {
-            .wrapper {
-                h2 {
-                    // font-size: 6.25rem;
-                }
-            }
-        }
-}
+// @media (min-width: 576px) {
+//     #i-write-in {
+//         .wrapper {
+//             h2 {
+//                 // font-size: 6.25rem;
+//             }
+//         }
+//     }
+// }
 
 @media (min-width: 768px) {
-     #iWriteIn {
-            .wrapper {
-                display: flex;
-                flex-direction: row;
-                h2 {
-                    font-size: 5rem;
-                }
+    #i-write-in {
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            h2 {
+                display: block;
+
+                width: 100%;
+            }
+
+            .languages {
+                width: 100%;
             }
         }
+    }
 }
 
 @media (min-width: 992px) {
-     #iWriteIn {
-            .wrapper {
-                h2 {
-                    font-size: 5rem;
-                }
+    #i-write-in {
+        .wrapper {
+            h2 {
+                font-size: 6.5rem;
             }
         }
+    }
 }
 
-@media (min-width: 1200px) {
-     #iWriteIn {
-            .wrapper {
-                h2 {
-                    font-size: 5rem;
-                }
-            }
-        }
-}
+// @media (min-width: 1200px) {
+//     #i-write-in {
+//         .wrapper {
+//             h2 {
+//                 // font-size: 6rem;
+//             }
+//         }
+//     }
+// }
 
-@media (min-width: 1400px) {
-     #iWriteIn {
-            .wrapper {
-                h2 {
-                    font-size: 5rem;
-                }
-            }
-        }
-}
-</style>
+// @media (min-width: 1400px) {
+//     #i-write-in {
+//         .wrapper {
+//             h2 {
+//                 // font-size: 5rem;
+//             }
+//         }
+//     }
+// }</style>

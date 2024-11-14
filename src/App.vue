@@ -3,6 +3,7 @@
   <Hero :scrollPercentage='scrollPercentage' />
   <AboutMe />
   <IWriteIn />
+  <LatestWork></LatestWork>
 </template>
 
 <script>
@@ -10,9 +11,10 @@ import Pointer from './components/pointer.vue';
 import Hero from './components/sections/hero.vue';
 import AboutMe from './components/sections/aboutMe.vue';
 import IWriteIn from './components/sections/iWriteIn.vue';
+import LatestWork from './components/sections/latestWork.vue';
 
 export default {
-  components: { Pointer, Hero, AboutMe, IWriteIn },
+  components: { Pointer, Hero, AboutMe, IWriteIn, LatestWork },
   data() {
     return {
       pageWidth: 0,

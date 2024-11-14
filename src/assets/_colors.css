@@ -1,10 +1,11 @@
 :root {
-  --main: rgba(15 23 42);
-  --main-hover:#1e293b80;
-  --pointer: rgba(29, 78, 216, 0.15);
+  --main: #0f172a;
+  --main-hover: #1e293b80;
+  --pointer: #1d4ed826;
   --primary: #b6c5da;
-  --primary-light: rgb(226 232 240);
-  --secondary-light: rgba(94 234 212);
-  --secondary-light-2: rgb(153, 234, 221);
-  --secondary-transparent:rgba(45, 212, 191, .1)
+  --primary-light: #e2e8f0;
+  --secondary-light: #5eead4;
+  --secondary-light-2: #99eadd;
+  --secondary-transparent: #2dd4bf1a;
+
 }

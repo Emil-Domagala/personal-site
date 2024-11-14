@@ -1,5 +1,5 @@
 <template>
-    <section id='aboutMe'>
+    <section id='about-me'>
         <div class="container">
             <Card>
                 <div class="main-text">
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-#aboutMe {
+#about-me {
     position: relative;
     display: flex;
     align-items: center;
@@ -56,7 +56,7 @@ export default {
 
 
 @media (min-width: 450px) {
-    #aboutMe {
+    #about-me {
         .main-text {
             h2 {
                 font-size: 4rem;
@@ -70,7 +70,7 @@ export default {
 }
 
 @media (min-width: 576px) {
-    #aboutMe {
+    #about-me {
         .main-text {
             h2 {
                 font-size: 4.5rem;
@@ -80,7 +80,7 @@ export default {
 }
 
 @media (min-width: 768px) {
-    #aboutMe {
+    #about-me {
         .main-text {
             flex-direction: row;
             gap: 3rem;
@@ -106,7 +106,7 @@ export default {
 }
 
 @media (min-width: 992px) {
-    #aboutMe {
+    #about-me {
         .main-text {
             p {
                 font-size: 2.5rem;
@@ -118,7 +118,7 @@ export default {
 
 
 @media (min-width: 1400px) {
-    #aboutMe {
+    #about-me {
         .main-text {
             h2 {
                 font-size: 5.5rem;
