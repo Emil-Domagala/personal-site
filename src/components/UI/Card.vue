@@ -1,7 +1,7 @@
 <template>
-    <div class="card">
-        <slot></slot>
-    </div>
+  <div class="card">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -12,42 +12,39 @@
 // const targetIsVisible = useElementVisibility(target)
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .card {
-    padding: 20px;
-    background-color: var(--main-hover);
+  padding: 20px;
+  background-color: var(--main-hover);
 }
 
 @media (min-width: 450px) {
-    .card {
-        padding: 35px;
-    }
+  .card {
+    padding: 35px;
+  }
 }
 
 @media (min-width: 576px) {
-    .card {
-        padding: 45px;
-    }
+  .card {
+    padding: 45px;
+  }
 }
 
 @media (min-width: 768px) {
-    .card {
-        padding: 55px;
-    }
+  .card {
+    padding: 55px;
+  }
 }
 
 @media (min-width: 992px) {
-    .card {
-        padding: 60px;
-
-    }
+  .card {
+    padding: 60px;
+  }
 }
 
 @media (min-width: 1200px) {
-    .card {
-        padding: 65px;
-    }
+  .card {
+    padding: 65px;
+  }
 }
-
-
 </style>
