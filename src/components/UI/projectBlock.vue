@@ -5,7 +5,7 @@
     target="_blank"
     class="project-block"
     :id="page.elementID"
-    :style="`transform: rotateX(${xPercent / 16}deg) rotateY(${yPercent / 16}deg); `"
+    :style="`transform: rotateX(${xPercent / 16}deg) rotateY(${yPercent / 16}deg) `"
   >
     <div class="project-block--img" :style="`background-image:url(${page.imgSrc})`"></div>
     <div class="project-block--slide">
@@ -22,21 +22,31 @@ export default {
   },
   data() {
     return {
+      windowWidth: 0,
       xPercent: 0,
       yPercent: 0,
+      //   scale: 1,
     };
   },
   mounted() {
-    this.$el.addEventListener("mousemove", this.moveIt);
-    this.$el.addEventListener("mouseleave", this.coursorLeft);
+    window.addEventListener("resize", this.getWidth);
+    this.getWidth();
+    if (this.windowWidth >= 992) {
+      this.$el.addEventListener("mousemove", this.moveIt);
+      this.$el.addEventListener("mouseleave", this.coursorLeft);
+    }
   },
   beforeUnmount() {
     this.$el.removeEventListener("mousemove", this.moveIt);
   },
   methods: {
+    getWidth() {
+      this.windowWidth = window.innerWidth;
+    },
     coursorLeft(e) {
       this.xPercent = 0;
       this.yPercent = 0;
+      this.scale = 1.0;
     },
     moveIt(e) {
       const rect = e.target.getBoundingClientRect();
@@ -100,11 +110,27 @@ export default {
 }
 
 .project-block:hover {
+  z-index: 20;
+  transition: z-index 0.4s;
   .project-block--slide {
     transform: translateY(0%);
   }
   .project-block--img {
     filter: brightness(20%);
+  }
+}
+
+@media (min-width: 992px) {
+  .project-block {
+    &--slide {
+      padding: 3rem;
+      h3 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 2rem;
+      }
+    }
   }
 }
 </style>

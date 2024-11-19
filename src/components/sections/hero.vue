@@ -52,6 +52,7 @@ export default {
   flex-direction: column;
   position: relative;
   width: 100%;
+  container-type: inline-size;
 
   &-image {
     display: block;

@@ -1,20 +1,20 @@
 <template>
-  <section id="latest-work">
+  <section id="latest-work" :style="`height:calc(${sectionHeight}px + 10vh)`">
     <div class="container">
-      <h2>My latest projects</h2>
+      <h2>My latest projects:</h2>
     </div>
     <div class="projects">
-      <ProjectBlock :page="pageLogical" />
+      <ProjectBlock :page="pageLogical" class="proj_block one" />
       <div class="line"></div>
-      <ProjectBlock :page="pageFindCoachReact" />
+      <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
       <div class="line"></div>
-      <ProjectBlock :page="pageMicrointeraction" />
+      <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
       <div class="line"></div>
-      <ProjectBlock :page="pageMmcSchool" />
+      <ProjectBlock :page="pageMmcSchool" class="proj_block four" />
       <div class="line"></div>
-      <ProjectBlock :page="pageFindCoachVue" />
+      <ProjectBlock :page="pageFindCoachVue" class="proj_block five" />
       <div class="line"></div>
-      <ProjectBlock :page="pageGithub" />
+      <ProjectBlock :page="pageGithub" class="proj_block six" id="last" />
     </div>
   </section>
 </template>
@@ -25,6 +25,7 @@ export default {
   components: { ProjectBlock },
   data() {
     return {
+      sectionHeight: 0,
       pageFindCoachVue: {
         elementID: "findCoachVue",
         name: "Find Coach Vue",
@@ -74,6 +75,20 @@ export default {
       },
     };
   },
+  mounted() {
+    window.addEventListener("resize", this.getSectionHeight);
+    this.getSectionHeight();
+  },
+  methods: {
+    getSectionHeight() {
+      const section = document.getElementById("latest-work");
+      const lastProjBlock = document.getElementById("last");
+
+      const bottomLastProjBlock = lastProjBlock.getBoundingClientRect().bottom;
+      const topSection = section.getBoundingClientRect().top;
+      this.sectionHeight = bottomLastProjBlock - topSection;
+    },
+  },
 };
 </script>
 
@@ -102,5 +117,65 @@ h2 {
   flex-direction: column;
   gap: 2rem;
   position: relative;
+  z-index: 6;
+  background-color: var(--main-hover);
+}
+
+@media (min-width: 992px) {
+  .line {
+    display: none;
+  }
+
+  h2 {
+    font-size: 6.5rem;
+  }
+
+  .proj_block {
+    position: absolute;
+    container-type: inline-size;
+  }
+  .one {
+    top: 52cqi;
+    left: 3cqi;
+    height: 48cqi;
+    width: 52cqi;
+    z-index: 11;
+  }
+  .two {
+    top: 10cqi;
+    left: 35cqi;
+    height: 35cqi;
+    width: 50cqi;
+    z-index: 8;
+  }
+  .three {
+    top: 22cqi;
+    right: 0px;
+    height: 55cqi;
+    width: 40cqi;
+    z-index: 9;
+  }
+
+  .four {
+    top: 0;
+    left: 0;
+    height: 50cqi;
+    width: 40cqi;
+    z-index: 10;
+  }
+  .five {
+    top: 60cqi;
+    left: 50cqi;
+    height: 35cqi;
+    width: 35cqi;
+    z-index: 10;
+  }
+  .six {
+    top: 80cqi;
+    right: 2cqi;
+    height: 30cqi;
+    width: 30cqi;
+    z-index: 10;
+  }
 }
 </style>

@@ -25,7 +25,7 @@ body {
   line-height: 1.5;
 }
 
-section{
+section {
   background-color: var(--main);
 }
 
@@ -76,7 +76,7 @@ h3 {
 }
 
 h1 {
-  font-size: 11cqw;
+  font-size: 11.5cqw;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: 800;
@@ -100,7 +100,7 @@ h2 {
     padding: 0 2.5vw;
   }
   h1 {
-    font-size: 11.5cqw;
+    font-size: 12cqw;
     letter-spacing: -2px;
   }
 }

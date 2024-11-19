@@ -5,21 +5,12 @@
         <div class="wrapper">
           <h2>I write in:</h2>
           <div class="languages">
-            <Language langName="Vue.js">
-              <!-- <VueSVG /> -->
-            </Language>
-            <Language langName="React.js">
-              <!-- <ReactSVG /> -->
-            </Language>
-            <Language langName="JavaScript">
-              <!-- <JavaScriptSVG /> -->
-            </Language>
-            <Language langName="TypeScript">
-              <!-- <TypeScriptSVG /> -->
-            </Language>
-            <Language langName="PHP">
-              <!-- <PhpSVG /> -->
-            </Language>
+            <Language langName="Vue.js" />
+            <Language langName="React.js" />
+            <Language langName="JavaScript" />
+            <Language langName="TypeScript" />
+            <Language langName="Sass" />
+            <Language langName="PHP" />
           </div>
         </div>
       </Card>
