@@ -1,20 +1,18 @@
 <template>
-  <section id="latest-work" :style="`height:calc(${sectionHeight}px + 10vh)`">
-    <div class="container">
-      <h2>My latest projects:</h2>
+  <section id="latest-work" :style="sectionHeight">
+    <div class="isContainer">
+      <h2>Latest projects:</h2>
     </div>
-    <div class="projects">
-      <ProjectBlock :page="pageLogical" class="proj_block one" />
-      <div class="line"></div>
-      <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
-      <div class="line"></div>
-      <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
-      <div class="line"></div>
-      <ProjectBlock :page="pageMmcSchool" class="proj_block four" />
-      <div class="line"></div>
-      <ProjectBlock :page="pageFindCoachVue" class="proj_block five" />
-      <div class="line"></div>
-      <ProjectBlock :page="pageGithub" class="proj_block six" id="last" />
+    <div :class="isContainer">
+      <div class="projects">
+        <ProjectBlock :page="pageLogical" class="proj_block one" />
+        <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
+        <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
+        <ProjectBlock :page="pageMmcSchool" class="proj_block four" />
+        <ProjectBlock :page="pageFindCoachVue" class="proj_block five" />
+        <ProjectBlock :page="pageGithub" class="proj_block six" id="last" />
+        <div class="last-block"></div>
+      </div>
     </div>
   </section>
 </template>
@@ -25,7 +23,9 @@ export default {
   components: { ProjectBlock },
   data() {
     return {
-      sectionHeight: 0,
+      isContainer: null,
+      windowWidth: null,
+      sectionHeight: null,
       pageFindCoachVue: {
         elementID: "findCoachVue",
         name: "Find Coach Vue",
@@ -76,17 +76,31 @@ export default {
     };
   },
   mounted() {
+    window.addEventListener("resize", this.getWidth);
+    this.getWidth();
     window.addEventListener("resize", this.getSectionHeight);
     this.getSectionHeight();
   },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.getSectionHeight);
+  },
   methods: {
+    getWidth() {
+      this.windowWidth = window.innerWidth;
+    },
     getSectionHeight() {
-      const section = document.getElementById("latest-work");
-      const lastProjBlock = document.getElementById("last");
+      if (this.windowWidth >= 992) {
+        const section = document.getElementById("latest-work");
+        const lastProjBlock = document.getElementById("last");
 
-      const bottomLastProjBlock = lastProjBlock.getBoundingClientRect().bottom;
-      const topSection = section.getBoundingClientRect().top;
-      this.sectionHeight = bottomLastProjBlock - topSection;
+        const bottomLastProjBlock = lastProjBlock.getBoundingClientRect().bottom;
+        const topSection = section.getBoundingClientRect().top;
+        this.sectionHeight = `height:calc(${bottomLastProjBlock - topSection}px + 10vh)`;
+        this.isContainer = null;
+      } else {
+        this.sectionHeight = null;
+        this.isContainer = "container";
+      }
     },
   },
 };
@@ -96,20 +110,43 @@ export default {
 #latest-work {
   position: relative;
   z-index: 5;
-  padding: 5vh 0;
+  padding: 20vh 0 5vh 0;
 }
 
-.line {
-  margin: 0 auto;
-  height: 1px;
-  width: 80%;
-  background-color: var(--primary);
-  opacity: 0.3;
+.isContainer {
+  position: sticky;
+  top: calc(9vh - 200px);
+  //   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  margin: 0px 4vw;
+  z-index: 6;
+  background-color: var(--main-hover);
 }
 
 h2 {
-  text-align: right;
-  margin-bottom: 2rem;
+  display: block;
+  padding-bottom: 6rem;
+  font-size: 11cqi;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six {
+  position: sticky;
+  top: calc(9vh + 4rem + 11cqi);
+}
+
+.last-block {
+  height: 200px;
 }
 
 .projects {
@@ -117,17 +154,55 @@ h2 {
   flex-direction: column;
   gap: 2rem;
   position: relative;
-  z-index: 6;
   background-color: var(--main-hover);
+  padding-bottom: 40px;
+}
+.proj_block {
+  z-index: 6;
+  padding: 1rem;
+}
+
+@media (min-width: 576px) {
+  .isContainer {
+    margin: 0 2.5vw;
+  }
+
+  //   .proj_block {
+  //     max-width: 600px;
+  //     width: 100%;
+  //     margin: 0 auto;
+  //   }
+
+  h2 {
+    font-size: 8cqi;
+  }
 }
 
 @media (min-width: 992px) {
-  .line {
+  #latest-work {
+    padding: 5vh 0;
+  }
+
+  .isContainer {
+    position: static;
+    padding-top: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+
+  .projects {
+    padding: 0;
+    background-color: transparent;
+  }
+  .last-block {
     display: none;
   }
 
   h2 {
+    text-align: right;
     font-size: 6.5rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
   }
 
   .proj_block {

@@ -31,34 +31,35 @@ export default {
   mounted() {
     window.addEventListener("resize", this.getWidth);
     this.getWidth();
-    if (this.windowWidth >= 992) {
-      this.$el.addEventListener("mousemove", this.moveIt);
-      this.$el.addEventListener("mouseleave", this.coursorLeft);
-    }
+    this.$el.addEventListener("mousemove", this.moveIt);
+    this.$el.addEventListener("mouseleave", this.coursorLeft);
   },
   beforeUnmount() {
+    window.removeEventListener("resize", this.getWidth);
     this.$el.removeEventListener("mousemove", this.moveIt);
   },
   methods: {
     getWidth() {
       this.windowWidth = window.innerWidth;
     },
-    coursorLeft(e) {
+    coursorLeft() {
       this.xPercent = 0;
       this.yPercent = 0;
       this.scale = 1.0;
     },
     moveIt(e) {
-      const rect = e.target.getBoundingClientRect();
+      if (this.windowWidth >= 992) {
+        const rect = e.target.getBoundingClientRect();
 
-      const halfWidth = rect.width / 2;
-      const halfHeight = rect.height / 2;
+        const halfWidth = rect.width / 2;
+        const halfHeight = rect.height / 2;
 
-      const xPos = e.clientX - rect.left - halfWidth;
-      const yPos = e.clientY - rect.top - halfHeight;
+        const xPos = e.clientX - rect.left - halfWidth;
+        const yPos = e.clientY - rect.top - halfHeight;
 
-      this.xPercent = (xPos / halfWidth) * 100;
-      this.yPercent = -(yPos / halfHeight) * 100;
+        this.xPercent = (xPos / halfWidth) * 100;
+        this.yPercent = -(yPos / halfHeight) * 100;
+      }
     },
   },
 };
@@ -66,69 +67,94 @@ export default {
 
 <style lang="scss" scoped>
 .project-block {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 2px;
-  background-color: #000;
-  //   box-shadow: 0px 0px 34px 6px var(--main-hover);
-  //   transform: rotateX('angle');
-  //   filter: brightness(100%);
-  transition: transform 0.1s;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: var(--main-light);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+
   &--slide {
-    position: absolute;
-    bottom: 0;
-    padding: 2rem;
-    transform: translateY(100%);
-    transition: transform 0.4s;
-    h3 {
-      font-size: 2.5rem;
-      color: var(--primary-light);
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.6rem;
-      color: var(--primary-light);
-    }
+    padding: 20px;
   }
+  h3 {
+    font-size: 2.8rem;
+  }
+  p {
+    display: none;
+  }
+
   &--img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    transition: filter 0.4s;
-    // width: 100%;
-    // background-image: url(../../assets/img/findCoachVue.png);
+    height: 450px;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
   }
 }
 
-.project-block:hover {
-  z-index: 20;
-  transition: z-index 0.4s;
-  .project-block--slide {
-    transform: translateY(0%);
-  }
-  .project-block--img {
-    filter: brightness(20%);
-  }
-}
-
 @media (min-width: 992px) {
   .project-block {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 2px;
+    background-color: #000;
+    transition: transform 0.1s;
+
     &--slide {
-      padding: 3rem;
+      position: absolute;
+      bottom: 0;
+      padding: 2rem;
+      transform: translateY(100%);
+      transition: transform 0.4s;
       h3 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        color: var(--primary-light);
+        margin-bottom: 1rem;
       }
       p {
-        font-size: 2rem;
+        display: block;
+        font-size: 1.6rem;
+        color: var(--primary-light);
+      }
+    }
+    &--img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transition: filter 0.4s;
+      height: auto;
+    }
+  }
+
+  .project-block:hover {
+    z-index: 20;
+    transition: z-index 0.4s;
+    .project-block--slide {
+      transform: translateY(0%);
+    }
+    .project-block--img {
+      filter: brightness(20%);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .project-block {
+      &--slide {
+        padding: 3rem;
+        h3 {
+          font-size: 3rem;
+        }
+        p {
+          font-size: 2rem;
+        }
       }
     }
   }

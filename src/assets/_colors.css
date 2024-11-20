@@ -1,11 +1,11 @@
 :root {
   --main: #0f172a;
   --main-hover: #1e293b80;
+  --main-light: #1e293b;
   --pointer: #1d4ed826;
   --primary: #b6c5da;
   --primary-light: #e2e8f0;
   --secondary-light: #5eead4;
   --secondary-light-2: #99eadd;
   --secondary-transparent: #2dd4bf1a;
-
 }
