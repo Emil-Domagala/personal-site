@@ -3,19 +3,63 @@
     <div class="container">
       <div class="top">
         <div
+          v-motion
+          :initial="{ opacity: 0 }"
+          :enter="{ opacity: 1 }"
+          :delay="2000"
+          :duration="500"
           class="top-background"
           :style="`transform: translateY(-${scrollPercentage / 3}vw);`"
         ></div>
-        <img src="../../assets/img/myPhoto.png" alt="my photo" class="top-image" />
-        <h1 class="top-name">Emil Domagała</h1>
-        <p class="top-profesion">Front-end Developer</p>
+        <img
+          v-motion
+          :initial="{ opacity: 0 }"
+          :enter="{ opacity: 1 }"
+          :delay="100"
+          :duration="2000"
+          src="../../assets/img/myPhoto.png"
+          alt="my photo"
+          class="top-image"
+        />
+        <h1
+          v-motion
+          :initial="{ opacity: 0 }"
+          :enter="{ opacity: 1 }"
+          :delay="100"
+          :duration="1500"
+          class="top-name"
+        >
+          Emil Domagała
+        </h1>
+        <p
+          v-motion
+          :initial="{ opacity: 0, y: 20 }"
+          :enter="{ opacity: 1, y: 0 }"
+          :delay="2200"
+          :duration="500"
+          class="top-profesion"
+        >
+          Front-end Developer
+        </p>
       </div>
     </div>
     <div
+      v-motion
+      :initial="{ opacity: 0, y: 20 }"
+      :enter="{ opacity: 1, y: 0 }"
+      :delay="2200"
+      :duration="500"
       class="bgc-h1"
-      :style="`transform: translateY(-${scrollPercentage / 10}vw);`"
+      :style="`fesnsform: translateY(-${scrollPercentage / 10}vw);`"
     ></div>
-    <div class="mouse">
+    <div
+      v-motion
+      :initial="{ opacity: 0, y: 20 }"
+      :enter="{ opacity: 1, y: 0 }"
+      :delay="2500"
+      :duration="500"
+      class="mouse"
+    >
       <div class="mouse-body">
         <div class="mouse-dot"></div>
       </div>

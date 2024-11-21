@@ -1,5 +1,5 @@
 <template>
-  <!-- <Pointer v-if="pageWidth > 768" /> -->
+  <Pointer v-if="pageWidth > 768" />
   <Hero :scrollPercentage="scrollPercentage" />
   <AboutMe />
   <IWriteIn />
