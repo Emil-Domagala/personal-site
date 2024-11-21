@@ -12,7 +12,7 @@
       </div>
     </div>
     <div
-      class="top-color-h1"
+      class="bgc-h1"
       :style="`transform: translateY(-${scrollPercentage / 10}vw);`"
     ></div>
     <div class="mouse">
@@ -73,15 +73,6 @@ export default {
     background-color: var(--main-hover);
   }
 
-  &-name {
-    position: absolute;
-    bottom: -5.8cqw;
-    // margin-top: 200px;
-    text-align: center;
-    width: 100%;
-    line-height: 1;
-  }
-
   &-profesion {
     display: block;
     position: absolute;
@@ -89,14 +80,6 @@ export default {
     color: #94a3b8;
     bottom: -13vw;
   }
-}
-
-.top-color-h1 {
-  width: 100%;
-  height: 15rem;
-  background-color: var(--secondary-light-2);
-  mix-blend-mode: darken;
-  z-index: 3;
 }
 
 .mouse {
@@ -172,10 +155,6 @@ export default {
 
     &-background {
       height: 240px;
-    }
-
-    &-name {
-      bottom: -6.1cqw;
     }
 
     &-profesion {

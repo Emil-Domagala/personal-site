@@ -75,11 +75,26 @@ h3 {
   color: var(--primary-light);
 }
 
+.contact-me-h2,
 h1 {
-  font-size: 11.5cqw;
+  position: absolute;
+  bottom: -7.5cqi;
+  text-align: center;
+  width: 100%;
+  font-size: 14cqi;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: 800;
+  line-height: 1;
+}
+
+.bgc-h1,
+.bgc-h2 {
+  width: 100%;
+  height: 100px;
+  background-color: var(--secondary-light-2);
+  mix-blend-mode: darken;
+  z-index: 3;
 }
 
 h2 {
@@ -92,27 +107,32 @@ h2 {
   margin: 0 auto;
 }
 
-@media (min-width: 450px) {
-}
+/* @media (min-width: 450px) {
+} */
 
 @media (min-width: 576px) {
   .container {
     padding: 0 2.5vw;
   }
+
+  .contact-me-h2,
   h1 {
-    font-size: 12cqw;
+    font-size: 11cqi;
     letter-spacing: -2px;
+    bottom: -5.9cqi;
   }
 }
-@media (min-width: 768px) {
-}
+/* @media (min-width: 768px) {
+} */
 @media (min-width: 992px) {
   .container {
     padding: 0 2vw;
   }
 }
-@media (min-width: 1200px) {
-}
+
+/* @media (min-width: 1200px) {
+} */
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;

@@ -30,7 +30,6 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 100vh;
-  // height: 100vh;
   padding: 25vh 0 5vh 0;
   background-color: var(--main);
   z-index: 5;

@@ -89,7 +89,7 @@ export default {
       this.windowWidth = window.innerWidth;
     },
     getSectionHeight() {
-      if (this.windowWidth >= 992) {
+      if (this.windowWidth >= 768) {
         const section = document.getElementById("latest-work");
         const lastProjBlock = document.getElementById("last");
 
@@ -110,16 +110,17 @@ export default {
 #latest-work {
   position: relative;
   z-index: 5;
-  padding: 20vh 0 5vh 0;
+  padding: 15vh 0 5vh 0;
+  background-color: var(--main);
 }
 
 .isContainer {
   position: sticky;
-  top: calc(9vh - 200px);
+  top: calc(8vh - 75px);
   //   position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 200px;
+  padding-top: 75px;
   margin: 0px 4vw;
   z-index: 6;
   background-color: var(--main-hover);
@@ -135,16 +136,6 @@ h2 {
   letter-spacing: -1px;
 }
 
-.one,
-.two,
-.three,
-.four,
-.five,
-.six {
-  position: sticky;
-  top: calc(9vh + 4rem + 11cqi);
-}
-
 .last-block {
   height: 200px;
 }
@@ -152,33 +143,35 @@ h2 {
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 5rem;
   position: relative;
   background-color: var(--main-hover);
   padding-bottom: 40px;
 }
 .proj_block {
+  position: sticky;
+  top: calc(9vh + 4rem + 11cqi);
   z-index: 6;
-  padding: 1rem;
+  padding: 1px;
 }
 
 @media (min-width: 576px) {
   .isContainer {
     margin: 0 2.5vw;
+    top: calc(5vh - 75px);
   }
-
-  //   .proj_block {
-  //     max-width: 600px;
-  //     width: 100%;
-  //     margin: 0 auto;
-  //   }
 
   h2 {
     font-size: 8cqi;
   }
+
+  .proj_block {
+    position: sticky;
+    top: calc(5vh + 4rem + 11cqi);
+  }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #latest-work {
     padding: 5vh 0;
   }

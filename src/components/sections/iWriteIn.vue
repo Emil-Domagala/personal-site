@@ -36,6 +36,7 @@ export default {
   position: relative;
   z-index: 5;
   padding: 5vh 0;
+  background-color: var(--main);
 
   .wrapper {
     h2 {
@@ -61,15 +62,7 @@ export default {
   }
 }
 
-// @media (min-width: 576px) {
-//     #i-write-in {
-//         .wrapper {
-//             h2 {
-//                 // font-size: 6.25rem;
-//             }
-//         }
-//     }
-// }
+
 
 @media (min-width: 768px) {
   #i-write-in {
@@ -100,24 +93,4 @@ export default {
     }
   }
 }
-
-// @media (min-width: 1200px) {
-//     #i-write-in {
-//         .wrapper {
-//             h2 {
-//                 // font-size: 6rem;
-//             }
-//         }
-//     }
-// }
-
-// @media (min-width: 1400px) {
-//     #i-write-in {
-//         .wrapper {
-//             h2 {
-//                 // font-size: 5rem;
-//             }
-//         }
-//     }
-// }
 </style>

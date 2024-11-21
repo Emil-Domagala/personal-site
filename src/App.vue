@@ -1,5 +1,5 @@
 <template>
-  <Pointer v-if="pageWidth > 768" />
+  <!-- <Pointer v-if="pageWidth > 768" /> -->
   <Hero :scrollPercentage="scrollPercentage" />
   <AboutMe />
   <IWriteIn />
@@ -41,9 +41,6 @@ export default {
       const percentOfScrolledScreenHeight =
         htmlElement.scrollTop / htmlElement.clientHeight;
       this.scrollPercentage = Math.min(percentOfScrolledScreenHeight * 100, 100);
-
-      // const percentOfScrolledFinalSection = 100 - (((htmlElement.scrollHeight - (htmlElement.clientHeight + htmlElement.scrollTop)) / htmlElement.clientHeight) * 100)
-      // this.scrollOffLastSection = Math.max(percentOfScrolledFinalSection, 0)
     },
   },
 };

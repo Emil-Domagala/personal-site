@@ -48,7 +48,7 @@ export default {
       this.scale = 1.0;
     },
     moveIt(e) {
-      if (this.windowWidth >= 992) {
+      if (this.windowWidth >= 768) {
         const rect = e.target.getBoundingClientRect();
 
         const halfWidth = rect.width / 2;
@@ -69,10 +69,13 @@ export default {
 .project-block {
   display: flex;
   flex-direction: column-reverse;
+  width: 100%;
+  max-width: 550px;
   background-color: var(--main-light);
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   text-decoration: none;
+  margin: 0 auto;
   cursor: pointer;
   overflow: hidden;
 
@@ -95,10 +98,20 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
+  .project-block {
+    &--img {
+      height: 520px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
   .project-block {
     position: relative;
     display: inline-block;
+    max-width: none;
+    margin: 0;
     width: 100%;
     height: 400px;
     overflow: hidden;
@@ -109,7 +122,7 @@ export default {
     &--slide {
       position: absolute;
       bottom: 0;
-      padding: 2rem;
+      padding: 3rem;
       transform: translateY(100%);
       transition: transform 0.4s;
       h3 {
@@ -144,17 +157,16 @@ export default {
       filter: brightness(20%);
     }
   }
-
-  @media (min-width: 992px) {
-    .project-block {
-      &--slide {
-        padding: 3rem;
-        h3 {
-          font-size: 3rem;
-        }
-        p {
-          font-size: 2rem;
-        }
+}
+@media (min-width: 992px) {
+  .project-block {
+    &--slide {
+      padding: 3rem;
+      h3 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 2rem;
       }
     }
   }

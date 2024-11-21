@@ -51,7 +51,6 @@ export default {
 
     p {
       color: var(--secondary-light-2);
-      // color: rgba(19 78 74);
     }
   }
 }
