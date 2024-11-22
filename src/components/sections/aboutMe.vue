@@ -1,7 +1,7 @@
 <template>
   <section id="about-me">
     <div class="container">
-      <Card>
+      <Card id="about-me-card" :style="`background-color: rgb(${rgb})`">
         <div class="main-text">
           <h2><span>Hi, I'm Emil,</span> a front-end developer based in Poznań.</h2>
           <p>
@@ -20,7 +20,49 @@
 <script>
 import Card from "../UI/Card.vue";
 export default {
+  data() {
+    return {
+      rgb: [15, 23, 42],
+      rgbInitial: [15, 23, 42],
+      rgbWonted: [21, 31, 51],
+    };
+  },
   components: { Card },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      const windowHeight = window.innerHeight;
+      const rect = document.getElementById("about-me-card").getBoundingClientRect().top;
+      // console.log(((windowHeight - rect) * 100) / windowHeight);
+      const percentOfCardPosition = ((windowHeight - rect) * 100) / windowHeight;
+      console.log(percentOfCardPosition);
+
+      const red = Math.min(
+        Math.max(
+          this.rgbInitial[0] + (percentOfCardPosition - 20) / 9,
+          this.rgbInitial[0]
+        ),
+        this.rgbWonted[0]
+      );
+      const green = Math.min(
+        Math.max(
+          this.rgbInitial[1] + (percentOfCardPosition - 20) / 7,
+          this.rgbInitial[1]
+        ),
+        this.rgbWonted[1]
+      );
+      const blue = Math.min(
+        Math.max(
+          this.rgbInitial[2] + (percentOfCardPosition - 20) / 6,
+          this.rgbInitial[2]
+        ),
+        this.rgbWonted[2]
+      );
+      this.rgb = [red, green, blue];
+    },
+  },
 };
 </script>
 

@@ -109,7 +109,7 @@ export default {
 <style lang="scss" scoped>
 #latest-work {
   position: relative;
-  z-index: 5;
+  z-index: 6;
   padding: 15vh 0 5vh 0;
   background-color: var(--main);
 }

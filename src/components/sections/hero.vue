@@ -6,7 +6,7 @@
           v-motion
           :initial="{ opacity: 0 }"
           :enter="{ opacity: 1 }"
-          :delay="2000"
+          :delay="1500"
           :duration="500"
           class="top-background"
           :style="`transform: translateY(-${scrollPercentage / 3}vw);`"
@@ -16,7 +16,7 @@
           :initial="{ opacity: 0 }"
           :enter="{ opacity: 1 }"
           :delay="100"
-          :duration="2000"
+          :duration="1500"
           src="../../assets/img/myPhoto.png"
           alt="my photo"
           class="top-image"
@@ -166,9 +166,13 @@ export default {
     bottom: 35px;
   }
 
-  100% {
+  99% {
     transform: scale(0);
     bottom: 35px;
+  }
+  100% {
+    bottom: 10px;
+    transform: scale(0);
   }
 }
 

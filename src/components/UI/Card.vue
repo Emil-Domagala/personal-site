@@ -10,6 +10,20 @@
 
 // const target = ref(null)
 // const targetIsVisible = useElementVisibility(target)
+
+// export default {
+//   mounted() {
+//     window.addEventListener("scroll", this.changeBgc);
+//   },
+//   methods: {
+//     changeBgc() {
+//       const windowScroll = window.scrollY;
+//       const currentCard = this.$el.getBoundingClientRect();
+//       console.log(windowScroll);
+//       console.log(currentCard);
+//     },
+//   },
+// };
 </script>
 
 <style scoped lang="scss">

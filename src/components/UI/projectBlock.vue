@@ -117,6 +117,7 @@ export default {
     overflow: hidden;
     border-radius: 2px;
     background-color: #000;
+    box-shadow: 0px 0px 15px 5px var(--main-hover);
     transition: transform 0.1s;
 
     &--slide {

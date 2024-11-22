@@ -1,4 +1,5 @@
 <template>
+  <ColorBlend />
   <Pointer v-if="pageWidth > 768" />
   <Hero :scrollPercentage="scrollPercentage" />
   <AboutMe />
@@ -14,9 +15,10 @@ import AboutMe from "./components/sections/aboutMe.vue";
 import IWriteIn from "./components/sections/iWriteIn.vue";
 import LatestWork from "./components/sections/latestWork.vue";
 import ContactMe from "./components/sections/contactMe.vue";
+import ColorBlend from "./components/colorBlend.vue";
 
 export default {
-  components: { Pointer, Hero, AboutMe, IWriteIn, LatestWork, ContactMe },
+  components: { Pointer, Hero, AboutMe, IWriteIn, LatestWork, ContactMe, ColorBlend },
   data() {
     return {
       pageWidth: 0,
