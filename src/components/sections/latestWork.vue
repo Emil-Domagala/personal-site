@@ -1,10 +1,11 @@
 <template>
   <section id="latest-work" :style="sectionHeight">
-    <div class="isContainer">
-      <h2>Latest projects:</h2>
-    </div>
-    <div :class="isContainer">
-      <div class="projects">
+    <div class="container">
+      <h2 id="latest-work-h2" :style="`background-color: rgb(${rgb})`">
+        Latest projects:
+      </h2>
+
+      <div class="projects" :style="`${projectsHeight}; background-color: rgb(${rgb})`">
         <ProjectBlock :page="pageLogical" class="proj_block one" />
         <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
         <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
@@ -19,13 +20,15 @@
 
 <script>
 import ProjectBlock from "../UI/projectBlock.vue";
+import { createOnScroll } from "../utils/scrollBackgroundUtility";
 export default {
   components: { ProjectBlock },
   data() {
     return {
-      isContainer: null,
+      rgb: [15, 23, 42],
       windowWidth: null,
       sectionHeight: null,
+      projectsHeight: null,
       pageFindCoachVue: {
         elementID: "findCoachVue",
         name: "Find Coach Vue",
@@ -80,9 +83,15 @@ export default {
     this.getWidth();
     window.addEventListener("resize", this.getSectionHeight);
     this.getSectionHeight();
+    this.onScroll = createOnScroll({
+      elementId: "latest-work-h2",
+      callback: (rgb) => (this.rgb = rgb),
+    });
+    window.addEventListener("scroll", this.onScroll);
   },
   beforeUnmount() {
     window.removeEventListener("resize", this.getSectionHeight);
+    window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
     getWidth() {
@@ -92,14 +101,18 @@ export default {
       if (this.windowWidth >= 768) {
         const section = document.getElementById("latest-work");
         const lastProjBlock = document.getElementById("last");
+        const heading = document.getElementById("latest-work-h2");
 
         const bottomLastProjBlock = lastProjBlock.getBoundingClientRect().bottom;
+        const bottomHeading = heading.getBoundingClientRect().bottom;
         const topSection = section.getBoundingClientRect().top;
         this.sectionHeight = `height:calc(${bottomLastProjBlock - topSection}px + 10vh)`;
-        this.isContainer = null;
+        this.projectsHeight = `height:calc(${
+          bottomLastProjBlock - bottomHeading + 30
+        }px )`;
       } else {
         this.sectionHeight = null;
-        this.isContainer = "container";
+        this.projectsHeight = null;
       }
     },
   },
@@ -114,26 +127,19 @@ export default {
   background-color: var(--main);
 }
 
-.isContainer {
+h2 {
   position: sticky;
   top: calc(8vh - 75px);
-  //   position: relative;
-  display: flex;
-  flex-direction: column;
-  padding-top: 75px;
-  margin: 0px 4vw;
-  z-index: 6;
-  background-color: var(--main-hover);
-}
-
-h2 {
   display: block;
+  padding-top: 75px;
   padding-bottom: 6rem;
-  font-size: 11cqi;
+  font-size: 9cqi;
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: -1px;
+  background-color: var(--main-hover);
+  z-index: 6;
 }
 
 .last-block {
@@ -156,12 +162,8 @@ h2 {
 }
 
 @media (min-width: 576px) {
-  .isContainer {
-    margin: 0 2.5vw;
-    top: calc(5vh - 75px);
-  }
-
   h2 {
+    top: calc(5vh - 75px);
     font-size: 8cqi;
   }
 
@@ -173,40 +175,40 @@ h2 {
 
 @media (min-width: 768px) {
   #latest-work {
-    padding: 5vh 0;
-  }
-
-  .isContainer {
-    position: static;
-    padding-top: 0;
-    margin: 0;
-    background-color: transparent;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
   }
 
   .projects {
+    position: relative;
+    padding: 0 20px;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
     padding: 0;
-    background-color: transparent;
+    // background-color: transparent;
+    container-type: inline-size;
   }
   .last-block {
     display: none;
   }
 
   h2 {
+    position: static;
     text-align: right;
     font-size: 6.5rem;
-    padding-right: 1rem;
+    padding-right: 4rem;
     padding-bottom: 2rem;
   }
 
   .proj_block {
     position: absolute;
-    container-type: inline-size;
   }
   .one {
     top: 52cqi;
     left: 3cqi;
     height: 48cqi;
-    width: 52cqi;
+    width: 50cqi;
     z-index: 11;
   }
   .two {
@@ -218,7 +220,7 @@ h2 {
   }
   .three {
     top: 22cqi;
-    right: 0px;
+    right: 20px;
     height: 55cqi;
     width: 40cqi;
     z-index: 9;
@@ -226,7 +228,7 @@ h2 {
 
   .four {
     top: 0;
-    left: 0;
+    left: 20px;
     height: 50cqi;
     width: 40cqi;
     z-index: 10;

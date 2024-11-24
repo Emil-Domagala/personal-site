@@ -19,6 +19,7 @@ body {
   background-color: var(--main);
   color: var(--primary);
   font-family: 'Open Sans', sans-serif;
+  font-smooth: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-size: 1.8rem;
@@ -95,6 +96,7 @@ h1 {
   background-color: var(--secondary-light-2);
   mix-blend-mode: darken;
   z-index: 3;
+  transition: transform 0.4s;
 }
 
 h2 {

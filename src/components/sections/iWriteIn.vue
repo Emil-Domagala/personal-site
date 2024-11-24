@@ -1,7 +1,7 @@
 <template>
   <section id="i-write-in">
     <div class="container">
-      <Card>
+      <Card id="i-write-in-card" :style="`background-color: rgb(${rgb})`">
         <div class="wrapper">
           <h2>I write in:</h2>
           <div class="languages">
@@ -20,14 +20,25 @@
 <script>
 import Card from "../UI/Card.vue";
 import Language from "../UI/language.vue";
-import VueSVG from "../../assets/svg/VueSVG.svg";
-import ReactSVG from "../../assets/svg/ReactSVG.svg";
-import JavaScriptSVG from "../../assets/svg/javaScriptSVG.svg";
-import TypeScriptSVG from "../../assets/svg/TypeScriptSVG.svg";
-import PhpSVG from "../../assets/svg/PhpSVG.svg";
+import { createOnScroll } from "../utils/scrollBackgroundUtility";
 
 export default {
-  components: { Card, VueSVG, ReactSVG, JavaScriptSVG, TypeScriptSVG, PhpSVG, Language },
+  components: { Card, Language },
+  data() {
+    return {
+      rgb: [15, 23, 42],
+    };
+  },
+  mounted() {
+    this.onScroll = createOnScroll({
+      elementId: "i-write-in-card",
+      callback: (rgb) => (this.rgb = rgb),
+    });
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
 };
 </script>
 
@@ -61,8 +72,6 @@ export default {
     }
   }
 }
-
-
 
 @media (min-width: 768px) {
   #i-write-in {

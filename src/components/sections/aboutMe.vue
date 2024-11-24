@@ -4,7 +4,7 @@
       <Card id="about-me-card" :style="`background-color: rgb(${rgb})`">
         <div class="main-text">
           <h2><span>Hi, I'm Emil,</span> a front-end developer based in Poznań.</h2>
-          <p>
+          <p id="about-me-text" :style="`opacity:${pAnimateOnVisible};`">
             I’m a skilled front-end freelancer proficient in SCSS, React.js, Vue.js and
             TypeScript, with experience in delivering commercial projects. Seeking a job
             as a front-end developer to dedicate more time to programming, I’m passionate
@@ -19,49 +19,40 @@
 
 <script>
 import Card from "../UI/Card.vue";
+import { createOnScroll } from "../utils/scrollBackgroundUtility";
+import { createIsVisible } from "../utils/isVisibleUtility";
 export default {
   data() {
     return {
+      pAnimateOnVisible: 0,
       rgb: [15, 23, 42],
-      rgbInitial: [15, 23, 42],
-      rgbWonted: [21, 31, 51],
+      pIsVisible: false,
     };
   },
   components: { Card },
+  watch: {
+    pIsVisible() {
+      if (this.pIsVisible) {
+        this.pAnimateOnVisible = 1;
+      }
+    },
+  },
   mounted() {
+    this.onScroll = createOnScroll({
+      elementId: "about-me-card",
+      callback: (rgb) => (this.rgb = rgb),
+    });
+    this.parIsVisible = createIsVisible({
+      elementId: "about-me-text",
+      margin: 100,
+      callback: (isVisible) => (this.pIsVisible = isVisible),
+    });
+    window.addEventListener("scroll", this.parIsVisible);
     window.addEventListener("scroll", this.onScroll);
   },
-  methods: {
-    onScroll() {
-      const windowHeight = window.innerHeight;
-      const rect = document.getElementById("about-me-card").getBoundingClientRect().top;
-      // console.log(((windowHeight - rect) * 100) / windowHeight);
-      const percentOfCardPosition = ((windowHeight - rect) * 100) / windowHeight;
-      console.log(percentOfCardPosition);
-
-      const red = Math.min(
-        Math.max(
-          this.rgbInitial[0] + (percentOfCardPosition - 20) / 9,
-          this.rgbInitial[0]
-        ),
-        this.rgbWonted[0]
-      );
-      const green = Math.min(
-        Math.max(
-          this.rgbInitial[1] + (percentOfCardPosition - 20) / 7,
-          this.rgbInitial[1]
-        ),
-        this.rgbWonted[1]
-      );
-      const blue = Math.min(
-        Math.max(
-          this.rgbInitial[2] + (percentOfCardPosition - 20) / 6,
-          this.rgbInitial[2]
-        ),
-        this.rgbWonted[2]
-      );
-      this.rgb = [red, green, blue];
-    },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("scroll", this.parIsVisible);
   },
 };
 </script>
@@ -87,6 +78,7 @@ export default {
     }
     p {
       font-size: 2rem;
+      transition: opacity 2s;
     }
   }
 }

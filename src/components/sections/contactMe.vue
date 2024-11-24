@@ -29,6 +29,7 @@ footer {
     border-bottom-right-radius: 30px;
     background-color: var(--main-hover);
     container-type: inline-size;
+    transition: transform 0.4s;
   }
 
   .link-wrapper {
@@ -52,6 +53,13 @@ footer {
     border-color: var(--secondary-light);
     transform: scale(1.025);
   }
+
+  .bgc:hover {
+    transform: scale(1.05);
+  }
+  .bgc:hover + .bgc-h2 {
+    transform: translateY(15%);
+  }
 }
 
 @media (min-width: 992px) {
@@ -64,4 +72,6 @@ footer {
     }
   }
 }
+
+
 </style>
