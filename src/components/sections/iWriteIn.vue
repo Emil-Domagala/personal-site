@@ -4,7 +4,7 @@
       <Card id="i-write-in-card" :style="`background-color: rgb(${rgb})`">
         <div class="wrapper">
           <h2>I write in:</h2>
-          <div class="languages">
+          <div class="languages" id="languages">
             <Language langName="Vue.js" />
             <Language langName="React.js" />
             <Language langName="JavaScript" />
@@ -29,12 +29,15 @@ export default {
       rgb: [15, 23, 42],
     };
   },
+
   mounted() {
     this.onScroll = createOnScroll({
       elementId: "i-write-in-card",
       callback: (rgb) => (this.rgb = rgb),
     });
+
     window.addEventListener("scroll", this.onScroll);
+    
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.onScroll);
@@ -59,6 +62,7 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      transition: opacity 2s;
     }
   }
 }

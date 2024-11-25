@@ -1,5 +1,5 @@
 <template>
-  <div class="language">
+  <div class="language" :style="`opacity:${opacity};`" :id="langName">
     <div class="language-logo">
       <ScriptSVG />
     </div>
@@ -11,6 +11,8 @@
 
 <script>
 import ScriptSVG from "../../assets/svg/ScriptySVG.svg";
+import { createIsVisible } from "../utils/isVisibleUtility";
+
 export default {
   components: { ScriptSVG },
   props: {
@@ -18,6 +20,28 @@ export default {
       requied: true,
       type: String,
     },
+  },
+  data() {
+    return {
+      opacity: 0,
+      isLangVisible: false,
+      // langName: null,
+    };
+  },
+  watch: {
+    isLangVisible() {
+      if (this.isLangVisible) {
+        this.opacity = 1;
+      }
+    },
+  },
+  mounted() {
+    this.langIsVisible = createIsVisible({
+      elementId: this.langName,
+      margin: 50,
+      callback: (isVisible) => (this.isLangVisible = isVisible),
+    });
+    window.addEventListener("scroll", this.langIsVisible);
   },
 };
 </script>
@@ -29,7 +53,7 @@ export default {
   align-items: center;
   background-color: var(--main);
   padding: 20px 25px;
-  transition: transform 0.4s;
+  transition: transform 0.4s, opacity 2s;
 
   &-logo {
     width: 4rem;

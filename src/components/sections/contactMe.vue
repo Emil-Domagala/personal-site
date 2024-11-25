@@ -32,6 +32,10 @@ footer {
     transition: transform 0.4s;
   }
 
+  .bgc-h2 {
+    transition: transform 0.4s;
+  }
+
   .link-wrapper {
     display: flex;
     justify-content: center;
@@ -72,6 +76,4 @@ footer {
     }
   }
 }
-
-
 </style>

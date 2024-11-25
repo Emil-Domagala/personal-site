@@ -50,7 +50,7 @@
       :delay="2200"
       :duration="500"
       class="bgc-h1"
-      :style="`fesnsform: translateY(-${scrollPercentage / 10}vw);`"
+      :style="`transform: translateY(-${scrollPercentage / 10}vw);`"
     ></div>
     <div
       v-motion
