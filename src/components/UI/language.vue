@@ -17,7 +17,7 @@ export default {
   components: { ScriptSVG },
   props: {
     langName: {
-      requied: true,
+      required: true,
       type: String,
     },
   },

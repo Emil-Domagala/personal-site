@@ -1,9 +1,14 @@
 <template>
   <section id="i-write-in">
     <div class="container">
-      <Card id="i-write-in-card" :style="`background-color: rgb(${rgb})`">
+      <Card id="i-write-in-card">
         <div class="wrapper">
-          <h2>I write in:</h2>
+          <h2 id='i-write-in-heading'> <HeadingAnimation
+              parentId="i-write-in-heading"
+              prefKey="about-me"
+              textProp="I write in: "
+              :marginVisible=50
+            /></h2>
           <div class="languages" id="languages">
             <Language langName="Vue.js" />
             <Language langName="React.js" />
@@ -20,28 +25,10 @@
 <script>
 import Card from "../UI/Card.vue";
 import Language from "../UI/language.vue";
-import { createOnScroll } from "../utils/scrollBackgroundUtility";
+import HeadingAnimation from '../UI/HeadingAnimation.vue';
 
 export default {
-  components: { Card, Language },
-  data() {
-    return {
-      rgb: [15, 23, 42],
-    };
-  },
-
-  mounted() {
-    this.onScroll = createOnScroll({
-      elementId: "i-write-in-card",
-      callback: (rgb) => (this.rgb = rgb),
-    });
-
-    window.addEventListener("scroll", this.onScroll);
-    
-  },
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
-  },
+  components: { Card, Language,HeadingAnimation },
 };
 </script>
 

@@ -17,7 +17,7 @@
           :enter="{ opacity: 1 }"
           :delay="100"
           :duration="1500"
-          src="../../assets/img/myPhoto.png"
+          src="/img/myPhoto.png"
           alt="my photo"
           class="top-image"
         />
@@ -72,7 +72,7 @@ export default {
   props: {
     scrollPercentage: {
       type: Number,
-      requied: true,
+      required: true,
     },
   },
 };
@@ -124,6 +124,9 @@ export default {
     color: #94a3b8;
     bottom: -13vw;
   }
+}
+.bgc-h1{
+  height: 15rem;
 }
 
 .mouse {

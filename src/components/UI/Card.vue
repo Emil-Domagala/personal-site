@@ -1,29 +1,33 @@
 <template>
-  <div class="card">
+  <div :id='id' class="card" :style="`background-color: rgb(${rgb})`">
     <slot></slot>
   </div>
 </template>
 
 <script>
-// import { useElementVisibility } from '@vueuse/core';
-// import { ref } from 'vue'
+import { createOnScroll } from "../utils/scrollBackgroundUtility";
+export default{
+  props: {
+    id: { type: String, required: true },
 
-// const target = ref(null)
-// const targetIsVisible = useElementVisibility(target)
+  }, data() {
+    return {
+      rgb: [15, 23, 42],
+    };
+  },
+    mounted() {
+    this.onScroll = createOnScroll({
+      elementId: this.id,
+      callback: (rgb) => (this.rgb = rgb),
+    });
+    
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+}
 
-// export default {
-//   mounted() {
-//     window.addEventListener("scroll", this.changeBgc);
-//   },
-//   methods: {
-//     changeBgc() {
-//       const windowScroll = window.scrollY;
-//       const currentCard = this.$el.getBoundingClientRect();
-//       console.log(windowScroll);
-//       console.log(currentCard);
-//     },
-//   },
-// };
 </script>
 
 <style scoped lang="scss">

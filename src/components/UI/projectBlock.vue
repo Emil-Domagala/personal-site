@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    page: { type: Object, Required: true },
+    page: { type: Object, required: true },
   },
   data() {
     return {

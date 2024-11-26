@@ -34,7 +34,7 @@ export default {
         name: "Find Coach Vue",
         desc:
           "The website was written in vue.js, uses vex, router. Uses firebase as a backend. You can create your own account, become a coach and send messages",
-        imgSrc: "/src/assets/img/findCoachVue.png",
+        imgSrc: "/img/findCoachVue.png",
         link: "http://www.edcoachvue.pl",
       },
       pageFindCoachReact: {
@@ -42,7 +42,7 @@ export default {
         name: "Find Coach React",
         desc:
           "The website was written in react.js, uses redux, router, framer-motion. Uses firebase as a backend. You can create your own account, become a coach and send messages",
-        imgSrc: "/src/assets/img/findCoachReact.png",
+        imgSrc: "/img/findCoachReact.png",
         link: "http://www.edfindcoach.pl",
       },
       pageMmcSchool: {
@@ -50,7 +50,7 @@ export default {
         name: "MMC School",
         desc:
           "Website created in HTML, SASS, JavaScript. I recreated the mmcschool.pl website from 2022",
-        imgSrc: "/src/assets/img/MMCSchool.png",
+        imgSrc: "/img/mMCSchool.png",
         link: "http://www.edmmcschool.pl",
       },
       pageMicrointeraction: {
@@ -58,7 +58,7 @@ export default {
         name: "Microinteraction",
         desc:
           "The website was written in react. It is highly responsive with many diferent animations, and also looks really nice",
-        imgSrc: "/src/assets/img/MicroInteractions.png",
+        imgSrc: "/img/microInteractions.png",
         link: "http://www.edwordpress.pl",
       },
       pageLogical: {
@@ -66,14 +66,14 @@ export default {
         name: "Logical",
         desc:
           "The Vue.js website focuses on scroll animations, incorporating advanced features. Offers a visually engaging user experience with dynamic effects triggered by scrolling act ons.",
-        imgSrc: "/src/assets/img/Logical.png",
+        imgSrc: "/img/logical.png",
         link: "http://www.mevsjmsgki.cfolks.pl",
       },
       pageGithub: {
         elementID: "github",
         name: "Github",
         desc: "Check out my GitHub!",
-        imgSrc: "/src/assets/img/github.png",
+        imgSrc: "/img/github.png",
         link: "https://github.com/Emil-Domagala",
       },
     };
