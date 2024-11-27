@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" :style="`opacity:${1 - scrollPercentage / 80}`">
+  <header id="hero" :style="`opacity:${1 - scrollPercentage / 80}`">
     <div class="container">
       <div class="top">
         <div
@@ -64,7 +64,7 @@
         <div class="mouse-dot"></div>
       </div>
     </div>
-  </section>
+  </header>
 </template>
 
 <script>
@@ -84,6 +84,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100vh;
+  height: 100svh;
   z-index: 2;
   background-color: var(--main);
 }
@@ -160,6 +161,10 @@ export default {
 
 @keyframes mouse-move {
   0% {
+    bottom: 10px;
+    transform: scale(0);
+  }
+  1% {
     bottom: 10px;
     transform: scale(1);
   }
