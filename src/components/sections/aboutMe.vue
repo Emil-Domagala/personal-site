@@ -1,5 +1,5 @@
 <template>
-  <section id="about-me">
+  <section id="about-me" :style="`background-color: rgba(var(--main-numbers),${transparency})`">
     <div class="container">
       <Card id="about-me-card" >
         <div class="main-text">
@@ -27,13 +27,14 @@
 <script>
 import Card from "../UI/Card.vue";
 import HeadingAnimation from "../UI/HeadingAnimation.vue";
-import { createOnScroll } from "../utils/scrollBackgroundUtility";
+import {createHowMuchScreenCovers} from '../utils/howMuchScreenCovers'
 import { createIsVisible } from "../utils/isVisibleUtility";
 export default {
   data() {
     return {
       pOpacity: 0,
       pIsVisible: false,
+      transparency:0.4
     };
   },
   components: { Card, HeadingAnimation },
@@ -45,21 +46,37 @@ export default {
     },
   },
   mounted() {
+
+    this.screenCovers=createHowMuchScreenCovers({
+         elementId: "about-me",
+      callback: (howMuchIsVisible) => (this.transparency = Math.max(howMuchIsVisible/85,0.4)),
+    })
+
+
     this.parIsVisible = createIsVisible({
       elementId: "about-me-text",
       margin: 100,
       callback: (isVisible) => (this.pIsVisible = isVisible),
     });
     window.addEventListener("scroll", this.parIsVisible);
+    window.addEventListener("scroll", this.screenCovers);
   },
   beforeUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("scroll", this.parIsVisible);
+    window.removeEventListener("scroll", this.screenCovers);
   },
 };
 </script>
 
 <style scoped lang="scss">
 #about-me {
+  backdrop-filter: blur(4px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 100vh;
+  padding: 25vh 0 5vh 0;
+  z-index: 5;
   span {
     text-wrap: balance;
     display: inline-block;
@@ -70,13 +87,6 @@ export default {
     transition: opacity 0.4s, transform 0.4s;
   }
 
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-top: 100vh;
-  padding: 25vh 0 5vh 0;
-  background-color: var(--main);
-  z-index: 5;
   .main-text {
     display: flex;
     flex-direction: column;

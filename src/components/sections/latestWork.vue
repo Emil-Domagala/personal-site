@@ -21,6 +21,8 @@
 <script>
 import ProjectBlock from "../UI/projectBlock.vue";
 import { createOnScroll } from "../utils/scrollBackgroundUtility";
+import { nextTick } from 'vue';
+
 export default {
   components: { ProjectBlock },
   data() {
@@ -82,7 +84,13 @@ export default {
     window.addEventListener("resize", this.getWidth);
     this.getWidth();
     window.addEventListener("resize", this.getSectionHeight);
-    this.getSectionHeight();
+
+  //    nextTick(() => {
+  //   this.getSectionHeight()
+  // });
+
+  document.addEventListener("DOMContentLoaded", this.getSectionHeight);
+
     this.onScroll = createOnScroll({
       elementId: "latest-work-h2",
       callback: (rgb) => (this.rgb = rgb),

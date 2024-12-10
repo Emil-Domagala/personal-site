@@ -1,11 +1,13 @@
 :root {
   --main: rgb(15, 23, 42);
   --main-hover: rgb(21, 31, 51);
-  --main-light: #1e293b;
+  --main-light: rgb(30, 41, 59);
   --pointer: #1d4ed826;
   --primary: #b6c5da;
   --primary-light: #e2e8f0;
   --secondary-light: #5eead4;
   --secondary-light-2: #99eadd;
   --secondary-transparent: #2dd4bf1a;
+
+  --main-numbers: 15, 23, 42;
 }

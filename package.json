@@ -2,6 +2,7 @@
   "name": "template-vue3",
   "version": "0.0.0",
   "private": true,
+  "author":"Emil Domagała",
   "type": "module",
   "scripts": {
     "dev": "vite",
