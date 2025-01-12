@@ -98,9 +98,10 @@ export default {
     window.addEventListener('resize', this.getWidth);
     this.getWidth();
     window.addEventListener('resize', this.getSectionHeight);
+    window.onload = this.runAfterAllLoaded;
 
-    nextTick(() => {
-      this.getSectionHeight();
+    this.$nextTick(() => {
+      this.runAfterAllLoaded();
     });
 
     document.addEventListener('DOMContentLoaded', this.getSectionHeight);
@@ -116,6 +117,9 @@ export default {
     window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
+    runAfterAllLoaded() {
+      this.getSectionHeight();
+    },
     getWidth() {
       this.windowWidth = window.innerWidth;
     },
