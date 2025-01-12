@@ -1,22 +1,24 @@
 <template>
-  <section id="about-me" :style="`background-color: rgba(var(--main-numbers),${transparency})`">
+  <section
+    id="about-me"
+    :style="`background-color: rgba(var(--main-numbers),${transparency})`">
     <div class="container">
-      <Card id="about-me-card" >
+      <Card id="about-me-card">
         <div class="main-text">
           <h2 id="about-me-heading">
             <HeadingAnimation
               parentId="about-me-heading"
               prefKey="about-me"
-              textProp="Hi, I'm Emil, a front-end developer based in Poznań"
-              :marginVisible=50
-            />
+              textProp="Hi, I'm Emil, a full-stack developer based in Poznań"
+              :marginVisible="50" />
           </h2>
-          <p id="about-me-text" :style="`opacity:${pOpacity};`">
-            I’m a skilled front-end freelancer proficient in SCSS, React.js, Vue.js and
-            TypeScript, with experience in delivering commercial projects. Seeking a job
-            as a front-end developer to dedicate more time to programming, I’m passionate
-            about advancing my skills and contributing to impactful projects in a
-            collaborative envionment.
+          <p
+            id="about-me-text"
+            :style="`opacity:${pOpacity};`">
+            I’m a skilled full-stack developer proficient in SCSS, React.js, Vue.js, TypeScript, Node.js, and SQL.
+            Passionate about software development, I’m seeking a role to craft intuitive, high-performance interfaces
+            while leveraging my full-stack expertise. I thrive in collaborative environments and am eager to contribute
+            to impactful projects.
           </p>
         </div>
       </Card>
@@ -25,16 +27,16 @@
 </template>
 
 <script>
-import Card from "../UI/Card.vue";
-import HeadingAnimation from "../UI/HeadingAnimation.vue";
-import {createHowMuchScreenCovers} from '../utils/howMuchScreenCovers'
-import { createIsVisible } from "../utils/isVisibleUtility";
+import Card from '../UI/Card.vue';
+import HeadingAnimation from '../UI/HeadingAnimation.vue';
+import { createHowMuchScreenCovers } from '../utils/howMuchScreenCovers';
+import { createIsVisible } from '../utils/isVisibleUtility';
 export default {
   data() {
     return {
       pOpacity: 0,
       pIsVisible: false,
-      transparency:0.4
+      transparency: 0.4,
     };
   },
   components: { Card, HeadingAnimation },
@@ -46,24 +48,22 @@ export default {
     },
   },
   mounted() {
-
-    this.screenCovers=createHowMuchScreenCovers({
-         elementId: "about-me",
-      callback: (howMuchIsVisible) => (this.transparency = Math.max(howMuchIsVisible/85,0.4)),
-    })
-
+    this.screenCovers = createHowMuchScreenCovers({
+      elementId: 'about-me',
+      callback: (howMuchIsVisible) => (this.transparency = Math.max(howMuchIsVisible / 85, 0.4)),
+    });
 
     this.parIsVisible = createIsVisible({
-      elementId: "about-me-text",
+      elementId: 'about-me-text',
       margin: 100,
       callback: (isVisible) => (this.pIsVisible = isVisible),
     });
-    window.addEventListener("scroll", this.parIsVisible);
-    window.addEventListener("scroll", this.screenCovers);
+    window.addEventListener('scroll', this.parIsVisible);
+    window.addEventListener('scroll', this.screenCovers);
   },
   beforeUnmount() {
-    window.removeEventListener("scroll", this.parIsVisible);
-    window.removeEventListener("scroll", this.screenCovers);
+    window.removeEventListener('scroll', this.parIsVisible);
+    window.removeEventListener('scroll', this.screenCovers);
   },
 };
 </script>

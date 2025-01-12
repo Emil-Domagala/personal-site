@@ -3,19 +3,22 @@
     <div class="container">
       <Card id="i-write-in-card">
         <div class="wrapper">
-          <h2 id='i-write-in-heading'> <HeadingAnimation
+          <h2 id="i-write-in-heading">
+            <HeadingAnimation
               parentId="i-write-in-heading"
               prefKey="about-me"
               textProp="I write in: "
-              :marginVisible=50
-            /></h2>
-          <div class="languages" id="languages">
+              :marginVisible="50" />
+          </h2>
+          <div
+            class="languages"
+            id="languages">
             <Language langName="Vue.js" />
             <Language langName="React.js" />
+            <Language langName="Node.js" />
             <Language langName="JavaScript" />
             <Language langName="TypeScript" />
             <Language langName="Sass" />
-            <Language langName="PHP" />
           </div>
         </div>
       </Card>
@@ -23,12 +26,12 @@
   </section>
 </template>
 <script>
-import Card from "../UI/Card.vue";
-import Language from "../UI/language.vue";
+import Card from '../UI/Card.vue';
+import Language from '../UI/language.vue';
 import HeadingAnimation from '../UI/HeadingAnimation.vue';
 
 export default {
-  components: { Card, Language,HeadingAnimation },
+  components: { Card, Language, HeadingAnimation },
 };
 </script>
 

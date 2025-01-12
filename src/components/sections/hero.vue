@@ -1,45 +1,43 @@
 <template>
-  <header id="hero" :style="`opacity:${1 - scrollPercentage / 80}`">
+  <header
+    id="hero"
+    :style="`opacity:${1 - scrollPercentage / 80}`">
     <div class="container">
       <div class="top">
         <div
           v-motion
           :initial="{ opacity: 0 }"
           :enter="{ opacity: 1 }"
-          :delay="1500"
+          :delay="800"
           :duration="500"
           class="top-background"
-          :style="`transform: translateY(-${scrollPercentage / 3}vw);`"
-        ></div>
+          :style="`transform: translateY(-${scrollPercentage / 3}vw);`"></div>
         <img
           v-motion
           :initial="{ opacity: 0 }"
           :enter="{ opacity: 1 }"
-          :delay="100"
-          :duration="1500"
+          :delay="300"
+          :duration="1200"
           src="/img/myPhoto.png"
           alt="my photo"
-          class="top-image"
-        />
+          class="top-image" />
         <h1
           v-motion
           :initial="{ opacity: 0 }"
           :enter="{ opacity: 1 }"
-          :delay="100"
-          :duration="1500"
-          class="top-name"
-        >
+          :delay="300"
+          :duration="1200"
+          class="top-name">
           Emil Domagała
         </h1>
         <p
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :enter="{ opacity: 1, y: 0 }"
-          :delay="2200"
+          :delay="1200"
           :duration="500"
-          class="top-profesion"
-        >
-          Front-end Developer
+          class="top-profesion">
+          Full-Stack Developer
         </p>
       </div>
     </div>
@@ -47,19 +45,17 @@
       v-motion
       :initial="{ opacity: 0, y: 20 }"
       :enter="{ opacity: 1, y: 0 }"
-      :delay="2200"
+      :delay="1200"
       :duration="500"
       class="bgc-h1"
-      :style="`transform: translateY(-${scrollPercentage / 10}vw);`"
-    ></div>
+      :style="`transform: translateY(-${scrollPercentage / 10}vw);`"></div>
     <div
       v-motion
       :initial="{ opacity: 0, y: 20 }"
       :enter="{ opacity: 1, y: 0 }"
-      :delay="2500"
+      :delay="1500"
       :duration="500"
-      class="mouse"
-    >
+      class="mouse">
       <div class="mouse-body">
         <div class="mouse-dot"></div>
       </div>
@@ -126,7 +122,7 @@ export default {
     bottom: -13vw;
   }
 }
-.bgc-h1{
+.bgc-h1 {
   height: 15rem;
 }
 

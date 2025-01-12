@@ -1,33 +1,35 @@
 <template>
-  <div :id='id' class="card" :style="`background-color: rgb(${rgb})`">
+  <div
+    :id="id"
+    class="card"
+    :style="`background-color: rgb(${rgb})`">
     <slot></slot>
   </div>
 </template>
 
 <script>
-import { createOnScroll } from "../utils/scrollBackgroundUtility";
-export default{
+import { createOnScroll } from '../utils/scrollBackgroundUtility';
+export default {
   props: {
     id: { type: String, required: true },
-
-  }, data() {
+  },
+  data() {
     return {
       rgb: [15, 23, 42],
     };
   },
-    mounted() {
+  mounted() {
     this.onScroll = createOnScroll({
       elementId: this.id,
       callback: (rgb) => (this.rgb = rgb),
     });
-    
-    window.addEventListener("scroll", this.onScroll);
+
+    window.addEventListener('scroll', this.onScroll);
   },
   beforeUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener('scroll', this.onScroll);
   },
-}
-
+};
 </script>
 
 <style scoped lang="scss">

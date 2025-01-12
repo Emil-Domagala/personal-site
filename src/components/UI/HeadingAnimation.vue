@@ -1,5 +1,8 @@
 <template>
-  <span v-for="word in headingText" class="word" :key="`${prefKey}_${word.wordID}`">
+  <span
+    v-for="word in headingText"
+    class="word"
+    :key="`${prefKey}_${word.wordID}`">
     <span
       v-for="letter in word.word"
       class="letter"
@@ -14,7 +17,7 @@
 </template>
 
 <script>
-import { createIsVisible } from "../utils/isVisibleUtility";
+import { createIsVisible } from '../utils/isVisibleUtility';
 
 export default {
   props: {
@@ -24,14 +27,14 @@ export default {
     marginVisible: { type: Number, required: true },
   },
   data() {
-    return { 
-        headingText: null, 
-        charStyle: {
+    return {
+      headingText: null,
+      charStyle: {
         opacity: 0,
-        transform: "translateX(-100%)",
+        transform: 'translateX(-100%)',
       },
-        isParentVisible: false 
-      };
+      isParentVisible: false,
+    };
   },
   created() {
     this.changeTextFunction();
@@ -42,17 +45,17 @@ export default {
       margin: this.marginVisible,
       callback: (isVisible) => (this.isParentVisible = isVisible),
     });
-    window.addEventListener("scroll", this.parentIsVisible);
+    window.addEventListener('scroll', this.parentIsVisible);
   },
   beforeUnmount() {
-    window.removeEventListener("scroll", this.parentIsVisible);
+    window.removeEventListener('scroll', this.parentIsVisible);
   },
   watch: {
     isParentVisible(visible) {
       if (visible) {
-this.charStyle = {
+        this.charStyle = {
           opacity: 1,
-          transform: "translateX(0%)",
+          transform: 'translateX(0%)',
         };
       }
     },
@@ -62,7 +65,7 @@ this.charStyle = {
       let wordId = 0;
       let letterId = 0;
 
-      const changedText = this.textProp.split(" ").map((word) => ({
+      const changedText = this.textProp.split(' ').map((word) => ({
         wordID: `wordID_${wordId++}`,
         word: [...word].map((letter) => {
           return { letterID: letterId++, letter };
@@ -74,8 +77,6 @@ this.charStyle = {
   },
 };
 </script>
-
-
 
 <style scoped lang="scss">
 span {
