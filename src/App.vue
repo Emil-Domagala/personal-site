@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import Pointer from "./components/pointer.vue";
-import Hero from "./components/sections/hero.vue";
-import AboutMe from "./components/sections/aboutMe.vue";
-import IWriteIn from "./components/sections/iWriteIn.vue";
-import LatestWork from "./components/sections/latestWork.vue";
-import ContactMe from "./components/sections/contactMe.vue";
-import ColorBlend from "./components/colorBlend.vue";
+import Pointer from './components/pointer.vue';
+import Hero from './components/sections/hero.vue';
+import AboutMe from './components/sections/aboutMe.vue';
+import IWriteIn from './components/sections/iWriteIn.vue';
+import LatestWork from './components/sections/latestWork.vue';
+import ContactMe from './components/sections/contactMe.vue';
+import ColorBlend from './components/colorBlend.vue';
 
 export default {
   components: { Pointer, Hero, AboutMe, IWriteIn, LatestWork, ContactMe, ColorBlend },
@@ -26,22 +26,21 @@ export default {
     };
   },
   created() {
-    window.addEventListener("scroll", this.scrollValue);
-    window.addEventListener("resize", this.scrollValue);
+    window.addEventListener('scroll', this.scrollValue);
+    window.addEventListener('resize', this.scrollValue);
     const htmlElement = document.documentElement;
     this.pageWidth = htmlElement.clientWidth;
   },
   unmounted() {
-    window.removeEventListener("scroll", this.scrollValue);
-    window.removeEventListener("resize", this.scrollValue);
+    window.removeEventListener('scroll', this.scrollValue);
+    window.removeEventListener('resize', this.scrollValue);
   },
   methods: {
     scrollValue() {
       const htmlElement = document.documentElement;
       this.pageWidth = htmlElement.clientWidth;
 
-      const percentOfScrolledScreenHeight =
-        htmlElement.scrollTop / htmlElement.clientHeight;
+      const percentOfScrolledScreenHeight = htmlElement.scrollTop / htmlElement.clientHeight;
       this.scrollPercentage = Math.min(percentOfScrolledScreenHeight * 100, 100);
     },
   },

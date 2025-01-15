@@ -1,36 +1,15 @@
 <template>
-  <section
-    id="latest-work"
-    :style="sectionHeight">
+  <section id="latest-work" :style="sectionHeight">
     <div class="container">
-      <h2
-        id="latest-work-h2"
-        :style="`background-color: rgb(${rgb})`">
-        Latest projects:
-      </h2>
+      <h2 id="latest-work-h2" :style="`background-color: rgb(${rgb})`">Latest projects:</h2>
 
-      <div
-        class="projects"
-        :style="`${projectsHeight}; background-color: rgb(${rgb})`">
-        <ProjectBlock
-          :page="pageLogical"
-          class="proj_block one" />
-        <ProjectBlock
-          :page="pageFindCoachReact"
-          class="proj_block two" />
-        <ProjectBlock
-          :page="pageMicrointeraction"
-          class="proj_block three" />
-        <ProjectBlock
-          :page="pageMmcSchool"
-          class="proj_block four" />
-        <ProjectBlock
-          :page="pageFindCoachVue"
-          class="proj_block five" />
-        <ProjectBlock
-          :page="pageGithub"
-          class="proj_block six"
-          id="last" />
+      <div class="projects" :style="`${projectsHeight}; background-color: rgb(${rgb})`">
+        <ProjectBlock :page="pageLogical" class="proj_block one" />
+        <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
+        <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
+        <ProjectBlock :page="pageMmcSchool" class="proj_block four" />
+        <ProjectBlock :page="pageFindCoachVue" class="proj_block five" />
+        <ProjectBlock :page="pageGithub" class="proj_block six" id="last" />
         <div class="last-block"></div>
       </div>
     </div>
@@ -62,7 +41,7 @@ export default {
         name: 'Find Coach React',
         desc: 'The website was written in react.js, uses redux, router, framer-motion. Uses firebase as a backend. You can create your own account, become a coach and send messages',
         imgSrc: '/img/findCoachReact.png',
-        link: 'http://www.edfindcoach.pl',
+        link: 'http://www.emildomagala.online',
       },
       pageMmcSchool: {
         elementID: 'mmcSchool',
