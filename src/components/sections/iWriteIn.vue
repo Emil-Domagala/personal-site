@@ -10,15 +10,13 @@
               textProp="I write in: "
               :marginVisible="50" />
           </h2>
-          <div
-            class="languages"
-            id="languages">
+          <div class="languages" id="languages">
             <Language langName="Vue.js" />
             <Language langName="React.js" />
             <Language langName="Node.js" />
             <Language langName="JavaScript" />
             <Language langName="TypeScript" />
-            <Language langName="Sass" />
+            <Language langName="SQL" />
           </div>
         </div>
       </Card>

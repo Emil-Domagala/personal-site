@@ -5,11 +5,12 @@
 
       <div class="projects" :style="`${projectsHeight}; background-color: rgb(${rgb})`">
         <ProjectBlock :page="pageLogical" class="proj_block one" />
+        <ProjectBlock :page="pageChat" class="proj_block six" />
         <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
         <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
         <ProjectBlock :page="pageMmcSchool" class="proj_block four" />
         <ProjectBlock :page="pageFindCoachVue" class="proj_block five" />
-        <ProjectBlock :page="pageGithub" class="proj_block six" id="last" />
+        <ProjectBlock :page="pageGithub" class="proj_block last-page" id="last" />
         <div class="last-block"></div>
       </div>
     </div>
@@ -34,21 +35,21 @@ export default {
         name: 'Find Coach Vue',
         desc: 'The website was written in vue.js, uses vex, router. Uses firebase as a backend. You can create your own account, become a coach and send messages',
         imgSrc: '/img/findCoachVue.png',
-        link: 'http://www.edcoachvue.pl',
+        link: 'https://vue-find-coach-eight.vercel.app/coaches',
       },
       pageFindCoachReact: {
         elementID: 'findCoachReact',
         name: 'Find Coach React',
         desc: 'The website was written in react.js, uses redux, router, framer-motion. Uses firebase as a backend. You can create your own account, become a coach and send messages',
         imgSrc: '/img/findCoachReact.png',
-        link: 'http://www.emildomagala.online',
+        link: 'https://find-coach-hosted.vercel.app',
       },
       pageMmcSchool: {
         elementID: 'mmcSchool',
         name: 'MMC School',
         desc: 'Website created in HTML, SASS, JavaScript. I recreated the mmcschool.pl website from 2022',
         imgSrc: '/img/mMCSchool.png',
-        link: 'http://www.edmmcschool.pl',
+        link: 'https://mmc-school.vercel.app',
       },
       pageMicrointeraction: {
         elementID: 'microinteraction',
@@ -62,7 +63,7 @@ export default {
         name: 'Logical',
         desc: 'The Vue.js website focuses on scroll animations, incorporating advanced features. Offers a visually engaging user experience with dynamic effects triggered by scrolling act ons.',
         imgSrc: '/img/logical.png',
-        link: 'http://www.mevsjmsgki.cfolks.pl',
+        link: 'http://mevsjmsgki.cfolks.pl',
       },
       pageGithub: {
         elementID: 'github',
@@ -70,6 +71,13 @@ export default {
         desc: 'Check out my GitHub!',
         imgSrc: '/img/github.png',
         link: 'https://github.com/Emil-Domagala',
+      },
+      pageChat: {
+        elementID: 'chat',
+        name: 'Chat',
+        desc: 'Built with React, Node.js, and Socket.io. It supports cookie-based authentication, usercontacts, group chats, image sharing, and WebSocket-based communication.',
+        imgSrc: '/img/chatPage.png',
+        link: 'https://chat.emildomagala.pl',
       },
     };
   },
@@ -215,8 +223,8 @@ h2 {
     z-index: 11;
   }
   .two {
-    top: 10cqi;
-    left: 35cqi;
+    top: 5cqi;
+    right: 10cqi;
     height: 35cqi;
     width: 50cqi;
     z-index: 8;
@@ -234,16 +242,23 @@ h2 {
     left: 20px;
     height: 50cqi;
     width: 40cqi;
-    z-index: 10;
+    z-index: 8;
   }
   .five {
     top: 60cqi;
     left: 50cqi;
     height: 35cqi;
     width: 35cqi;
+    z-index: 9;
+  }
+
+  .six {
+    left: 25cqi;
+    height: 50cqi;
+    width: 45cqi;
     z-index: 10;
   }
-  .six {
+  .last-page {
     top: 80cqi;
     right: 2cqi;
     height: 30cqi;
