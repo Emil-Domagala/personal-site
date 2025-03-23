@@ -1,8 +1,5 @@
 <template>
-  <div
-    :id="id"
-    class="card"
-    :style="`background-color: rgb(${rgb})`">
+  <div :id="id" class="card" :style="`background-color: rgb(${rgb})`">
     <slot></slot>
   </div>
 </template>

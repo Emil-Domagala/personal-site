@@ -15,7 +15,7 @@
           <p
             id="about-me-text"
             :style="`opacity:${pOpacity};`">
-            I’m a skilled full-stack developer proficient in SCSS, React.js, Vue.js, TypeScript, Node.js, and SQL.
+            I’m a skilled full-stack developer proficient in Next.js, Vue.js, TypeScript, Node.js, Java SQL and SCSS.
             Passionate about software development, I’m seeking a role to craft intuitive, high-performance interfaces
             while leveraging my full-stack expertise. I thrive in collaborative environments and am eager to contribute
             to impactful projects.

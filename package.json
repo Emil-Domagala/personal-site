@@ -2,7 +2,7 @@
   "name": "template-vue3",
   "version": "0.0.0",
   "private": true,
-  "author":"Emil Domagała",
+  "author": "Emil Domagała",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
-    "node-sass": "^9.0.0",
     "sass": "^1.71.1",
     "sass-loader": "^16.0.3",
     "vite": "^5.4.10"

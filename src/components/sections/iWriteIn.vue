@@ -12,10 +12,11 @@
           </h2>
           <div class="languages" id="languages">
             <Language langName="Vue.js" />
-            <Language langName="React.js" />
+            <Language langName="Next.js" />
             <Language langName="Node.js" />
             <Language langName="JavaScript" />
             <Language langName="TypeScript" />
+            <Language langName="Java" />
             <Language langName="SQL" />
           </div>
         </div>
