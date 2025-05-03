@@ -4,12 +4,13 @@
       <h2 id="latest-work-h2" :style="`background-color: rgb(${rgb})`">Latest projects:</h2>
 
       <div class="projects" :style="`${projectsHeight}; background-color: rgb(${rgb})`">
-        <ProjectBlock :page="pageLogical" class="proj_block one" />
-        <ProjectBlock :page="pageChat" class="proj_block six" />
-        <ProjectBlock :page="pageFindCoachReact" class="proj_block two" />
-        <ProjectBlock :page="pageMicrointeraction" class="proj_block three" />
-        <ProjectBlock :page="pageMmcSchool" class="proj_block four" />
-        <ProjectBlock :page="pageFindCoachVue" class="proj_block five" />
+        <ProjectBlock :page="pageLogical" class="proj_block logical" />
+        <ProjectBlock :page="pageChat" class="proj_block chatie" />
+        <ProjectBlock :page="pageFindCoachReact" class="proj_block findReact" />
+        <ProjectBlock :page="pageMicrointeraction" class="proj_block microinteractions" />
+        <ProjectBlock :page="pageMmcSchool" class="proj_block mmc" />
+        <ProjectBlock :page="pageFindCoachVue" class="proj_block findCoachVue" />
+        <ProjectBlock :page="pageCourse" class="proj_block pageCourse" />
         <ProjectBlock :page="pageGithub" class="proj_block last-page" id="last" />
         <div class="last-block"></div>
       </div>
@@ -78,6 +79,13 @@ export default {
         desc: 'Built with React, Node.js, and Socket.io. It supports cookie-based authentication, usercontacts, group chats, image sharing, and WebSocket-based communication.',
         imgSrc: '/img/chatPage.png',
         link: 'https://chat.emildomagala.pl',
+      },
+      pageCourse: {
+        elementID: 'course',
+        name: 'Course',
+        desc: 'A Udemy-inspired platform for video-based courses, built with Java (Spring Boot) and Next.js. It supports course browsing, purchase, and progress tracking, with dedicated dashboards for users, teachers, and admins.',
+        imgSrc: '/img/findCourse.png',
+        link: 'https://course.emildomagala.pl',
       },
     };
   },
@@ -215,36 +223,36 @@ h2 {
   .proj_block {
     position: absolute;
   }
-  .one {
-    top: 52cqi;
+  .logical {
+    top: 32cqi;
     left: 3cqi;
-    height: 48cqi;
-    width: 50cqi;
+    height: 40cqi;
+    width: 35cqi;
     z-index: 11;
   }
-  .two {
-    top: 5cqi;
-    right: 10cqi;
+  .findReact {
+    top: 2cqi;
+    right: 5cqi;
     height: 35cqi;
     width: 50cqi;
     z-index: 8;
   }
-  .three {
+  .microinteractions {
     top: 22cqi;
     right: 20px;
-    height: 55cqi;
-    width: 40cqi;
+    height: 45cqi;
+    width: 35cqi;
     z-index: 9;
   }
 
-  .four {
+  .mmc {
     top: 0;
     left: 20px;
-    height: 50cqi;
-    width: 40cqi;
+    height: 40cqi;
+    width: 35cqi;
     z-index: 8;
   }
-  .five {
+  .findCoachVue {
     top: 60cqi;
     left: 50cqi;
     height: 35cqi;
@@ -252,12 +260,22 @@ h2 {
     z-index: 9;
   }
 
-  .six {
+  .chatie {
+    top: 10cqi;
     left: 25cqi;
     height: 50cqi;
     width: 45cqi;
+    z-index: 9;
+  }
+
+  .pageCourse {
+    top: 60cqi;
+    left: 5cqi;
+    height: 40cqi;
+    width: 54cqi;
     z-index: 10;
   }
+
   .last-page {
     top: 80cqi;
     right: 2cqi;
